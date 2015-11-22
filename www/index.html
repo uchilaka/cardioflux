@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ratchet template page</title>
+
+        <!-- Sets initial viewport load and disables zooming  -->
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+        <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <!-- Include the compiled Ratchet CSS -->
+        <link href="libs/ratchet/dist/css/ratchet.css" rel="stylesheet">
+
+        <!-- Include the compiled Ratchet JS -->
+        <!--<script src="libs/dist/js/ratchet.js"></script>-->
+        <script src="libs/angular/angular.min.js"></script>
+        <script src="libs/angular-route/angular-route.min.js"></script>
+        <script src="libs/angular-sanitize/angular-sanitize.min.js"></script>
+    </head>
+    <body ng-app="CardioFlux">
+
+        <!-- Make sure all your bars are the first things in your <body> -->
+        <header class="bar bar-nav">
+            <h1 class="title">CardioFlux</h1>
+        </header>
+
+        <div class="content" ng-view></div>
+
+        <script>
+            angular.module('CardioFlux', [
+                'ngRoute',
+                'ngSanitize',
+            ], function ($httpProvider) {
+                // Use x-www-form-urlencoded Content-Type
+                $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+                /**
+                 * The workhorse; converts an object to x-www-form-urlencoded serialization.
+                 * @param {Object} obj
+                 * @return {String}
+                 */
+                var param = function (obj) {
+                    var query = '', name, value, fullSubName, subName, subValue, innerObj, i;
+
+                    for (name in obj) {
+                        value = obj[name];
+
+                        if (value instanceof Array) {
+                            for (i = 0; i < value.length; ++i) {
+                                subValue = value[i];
+                                fullSubName = name + '[' + i + ']';
+                                innerObj = {};
+                                innerObj[fullSubName] = subValue;
+                                query += param(innerObj) + '&';
+                            }
+                        }
+                        else if (value instanceof Object) {
+                            for (subName in value) {
+                                subValue = value[subName];
+                                fullSubName = name + '[' + subName + ']';
+                                innerObj = {};
+                                innerObj[fullSubName] = subValue;
+                                query += param(innerObj) + '&';
+                            }
+                        }
+                        else if (value !== undefined && value !== null)
+                            query += encodeURIComponent(name) + '=' + encodeURIComponent(value) + '&';
+                    }
+
+                    return query.length ? query.substr(0, query.length - 1) : query;
+                };
+
+                // Override $http service's default transformRequest
+                $httpProvider.defaults.transformRequest = [function (data) {
+                        return angular.isObject(data) && String(data) !== '[object File]' ? param(data) : data;
+                    }];
+            }).config(['$routeProvider',
+                function ($routeProvider) {
+                    $routeProvider
+                            .when('/home', {
+                                templateUrl: 'home.html'
+                            })
+                            .otherwise({
+                                redirectTo: '/home'
+                            });
+                }
+            ]);
+        </script>
+    </body>
+</html>
