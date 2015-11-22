@@ -1,7 +1,9 @@
 var CardioFlux = angular.module('CardioFlux', [
     'ngRoute',
     'ngSanitize',
+    'svc.ext',
     'svc.context',
+    'svc.io',
 ], function ($httpProvider) {
     // Use x-www-form-urlencoded Content-Type
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
@@ -48,6 +50,12 @@ var CardioFlux = angular.module('CardioFlux', [
 }).config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider
+                .when('/workout_result', {
+                    templateUrl: 'workout_result.html'
+                })
+                .when('/start_workout', {
+                    templateUrl: 'start_workout.html'
+                })
                 .when('/dashboard', {
                     templateUrl: 'dashboard.html'
                 })
