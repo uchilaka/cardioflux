@@ -61,7 +61,7 @@ for ($cycles; $cycles > 0; $cycles--) {
         ];
     }
 }
-
+header("HTTP/1.1 200 OK");
 header("Content-type: application/json");
 echo json_encode([
     'maxBPM' => $maxBPM,

@@ -58,5 +58,6 @@ $workout_plans = [
     ]
 ];
 
+header("HTTP/1.1 200 OK");
 header("Content-type: application/json");
 echo json_encode($workout_plans, JSON_PRETTY_PRINT);
