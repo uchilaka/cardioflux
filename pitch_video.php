@@ -10,11 +10,15 @@ and open the template in the editor.
         <title>CardioFlux : Pitch Video</title>
         <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css" />
     </head>
     <body>
         <div class="jumbotron" style="text-align: center;">
             <h3>Heart Health Matters</h3>
             <iframe style="display: block; margin: 0 auto;" width="640" height="480" src="https://www.youtube.com/embed/4VP1kKHLRhA" frameborder="0" allowfullscreen></iframe>        
+            <div class="form-group" style="padding: 1em;">
+                <a href="https://docs.google.com/presentation/d/1WNT9FjnAzRndDyM39jqSSaWX3rgMD0feVpteClZHktA/edit?usp=sharing" class="btn btn-lg btn-default" target="_top"><i class="fa fa-sticky-note-o"></i> SLIDES</a>
+            </div>
         </div>
     </body>
 </html>
