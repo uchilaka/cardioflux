@@ -89,3 +89,35 @@ ul .divider {
     border-bottom: 2px solid #000;
     margin-top: 1em;
 }
+@keyframes pulsing-beat {
+    0% {
+        border: 5px solid rgba(255, 255, 255, 0.25);
+    }
+    25% {
+        border: 10px solid rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        border: 15px solid rgba(255, 255, 255, 0.75);
+    }
+    50% {
+        border: 10px solid rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        border: 5px solid rgba(255, 255, 255, 0.25);
+    }
+}
+.pulsing {
+    animation-name: pulsing-beat;
+    animation-duration: 0.75s; 
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    animation-direction: alternate;
+}
+.row {
+    display: block;
+    margin: 0 auto;
+}
+.row article {
+    width: 32%;
+    display: inline-block;
+}

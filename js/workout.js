@@ -1,6 +1,12 @@
 CardioFlux.controller('WorkoutCtrl', [
-    '$rootScope',
-    function($rootScope) {
+    '$rootScope', '$scope',
+    function($rootScope, $scope) {
         console.log("[module.controller.Workout]");
+        
+        $scope.init = function() {
+            
+        };
+        $scope.init();
+        
     }
 ]);
