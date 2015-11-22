@@ -1,7 +1,7 @@
 <!-- @TODO use workout backgrounds that correspond to the selected workout plan for the user -->
 <div ng-controller="WorkoutCtrl" class="spread live-bg1 active-view">
     <div class="cue cue-success" ng-show="callout">
-        <button type="button" ng-click="callout=null;" class="close" data-dismiss="alert" aria-label="Close">
+        <button type="button" ng-click="callout=null;" class="close pull-right" style="background: none; border: none;" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
         <h3 ng-bind-html="callout.title"></h3>
