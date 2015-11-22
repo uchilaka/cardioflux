@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Ratchet template page</title>
+        <title>CardioFlux</title>
 
         <!-- Sets initial viewport load and disables zooming  -->
         <meta name="viewport" content="initial-scale=1, maximum-scale=1">
@@ -23,14 +23,16 @@
     <body ng-app="CardioFlux">
 
         <!-- Make sure all your bars are the first things in your <body> -->
-        <header class="bar bar-nav">
-            <h1 class="title">CardioFlux</h1>
+        <header class="bar bar-nav" ng-controller="NavCtrl">
+            <h1 class="title">{{ appName }}</h1>
         </header>
 
         <div class="content" ng-view></div>
+        <script src="js/svc.context.js"></script>
         <!-- MUST BE FIRST!! -->
         <script src="js/cardioflux.js"></script>
         <!-- ALL modules using CardioFlux variable should be included after cardioflux.js -->
+        <script src="js/nav.js"></script>
         <script src="js/workout.js"></script>
     </body>
 </html>
