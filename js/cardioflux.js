@@ -48,14 +48,14 @@ var CardioFlux = angular.module('CardioFlux', [
 }).config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider
-                .when('/home', {
-                    templateUrl: 'home.html'
+                .when('/dashboard', {
+                    templateUrl: 'dashboard.html'
                 })
                 .when('/workout', {
                     templateUrl: 'workout.html'
                 })
                 .otherwise({
-                    redirectTo: '/home'
+                    redirectTo: '/dashboard'
                 });
     }
 ]);

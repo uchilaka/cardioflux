@@ -1,3 +1,38 @@
-<div ng-controller="WorkoutCtrl" class="content-padded">
-    <h2>Workout</h2>
+<!-- @TODO use workout backgrounds that correspond to the selected workout plan for the user -->
+<div ng-controller="WorkoutCtrl" class="live-bg1 active-view">
+    <div class="jumbotron" style="text-align: center; padding: 1.8em; background-color: rgba(0, 0, 0, 0.45);">
+        <!--
+        <div style="text-align: center; display: block; background-color: rgba(0, 0, 0, 0.75); border-radius: 50%; width: 220px; height: 220px; padding-top: 45px; margin: 0 auto;">
+            <h1 class="bpm" style="font-size: 120px;">
+                <span>74</span>
+            </h1>
+            <span class="small-text">beats / min</span>
+        </div>
+        -->
+        <section>
+            <h1 class="bpm" style="font-size: 120px;">
+                <span>74</span>
+            </h1>
+            <span class="subtext">beats / min</span>
+        </section>
+        
+        <div class="row">
+            <article class="col-xs-6">
+                <section>
+                    <h2>49</h2>
+                    <span class="subtext">MINS</span>
+                </section>
+            </article>
+            <article class="col-xs-6">
+                <section>
+                    <h2>Rest</h2>
+                    <span class="subtext">ZONE</span>
+                </section>
+            </article>
+        </div>
+        
+        <button style="background-color: rgba(255, 0, 0, 0.95); border: none; width: 90px; height: 90px; border-radius: 45px; margin-top: 1.2em;">
+            <i class="fa fa-stop"></i>
+        </button>
+    </div>
 </div>

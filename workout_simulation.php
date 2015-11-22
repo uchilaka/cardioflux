@@ -1,5 +1,26 @@
 <?php
 
+define('REQUEST_METHOD_GET', 'GET');
+define('REQUEST_METHOD_POST', 'POST');
+
+function safevariable($key, $method = REQUEST_METHOD_GET, $default = null) {
+    switch ($method) {
+        case REQUEST_METHOD_GET:
+            return empty($_GET[$key]) ? $default : $_GET[$key];
+
+        case REQUEST_METHOD_POST:
+            return empty($_POST[$key]) ? $default : $_POST[$key];
+    }
+}
+
+function csvalue($value) {
+    if(is_numeric($value)) {
+        return $value;
+    } else {
+        return "\"{$value}\"";
+    }
+}
+
 $age = 29;
 $maxBPM = 220 - $age;
 $startingBPM = 68;
@@ -7,7 +28,6 @@ $recoveryRate = 0.015;
 $accelerationRate = 0.025;
 $workToRestRatio = 0.5; // $work_time / $rest_time
 $workTime = 1 * 60; // 1 minute
-
 # initialize
 $currentBPM = $startingBPM;
 $datafeed = [];
@@ -61,10 +81,26 @@ for ($cycles; $cycles > 0; $cycles--) {
         ];
     }
 }
-header("HTTP/1.1 200 OK");
-header("Content-type: application/json");
-echo json_encode([
+$dataset = (object)[
     'maxBPM' => $maxBPM,
     'age' => $age,
     'data' => $datafeed
-        ], JSON_PRETTY_PRINT);
+];
+
+header("HTTP/1.1 200 OK");
+$format = safevariable('format');
+switch ($format) {
+    case 'csv':
+        header("Content-type: text/csv");
+        $headers = ['zone', 'secs', 'bpm'];
+        $delim = ",";
+        echo implode($delim, $headers) . PHP_EOL;
+        foreach($dataset->data as $row) {
+            echo implode($delim, [csvalue($row['zone']), csvalue($row['secs']), csvalue($row['bpm'])]) . PHP_EOL;
+        }
+        break;
+
+    default:
+        header("Content-type: application/json");
+        echo json_encode($dataset, JSON_PRETTY_PRINT);
+}

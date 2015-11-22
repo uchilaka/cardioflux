@@ -24,6 +24,13 @@
         <script src="libs/angular-route/angular-route.min.js"></script>
         <script src="libs/angular-sanitize/angular-sanitize.min.js"></script>
         <style type="text/css">
+            .bg-color {
+                background-color: #dd524d;
+                color: #fff;
+            }
+            .bg-color h1, .bg-color a {
+                color: #fff;
+            }
             #appbody {
                 position: fixed;
                 top: 0;
@@ -67,13 +74,46 @@
             #appbody.menu-open header {
                 left: 210px;
             }
+            .dash-content {
+                background: rgba(212,228,239,1);
+                background: -moz-radial-gradient(center, ellipse cover, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+                background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(212,228,239,1)), color-stop(100%, rgba(134,174,204,1)));
+                background: -webkit-radial-gradient(center, ellipse cover, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+                background: -o-radial-gradient(center, ellipse cover, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+                background: -ms-radial-gradient(center, ellipse cover, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+                background: radial-gradient(ellipse at center, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#86aecc', GradientType=1 );                
+            }
+            .content p {
+                font-size: 1.2em;
+                line-height: 135%;
+            }
+            .live-bg1 {
+                background-size: cover;
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-image: url('assets/treadmill_active.jpg');
+                color: #fff;
+            }
+            .subtext {
+                color: #ccc;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+            .bg-spread {
+                color: #fff;
+            }
+            .bg-spread h1, bg-spread h2, bg-spread h3 {
+                color: #fff;
+            }
         </style>
     </head>
     <body ng-app="CardioFlux">
 
         <div id="appbody">
             <!-- Make sure all your bars are the first things in your <body> -->
-            <header class="bar bar-nav" ng-controller="NavCtrl">
+            <header class="bar bar-nav bg-color" ng-controller="NavCtrl">
                 <a class="icon pull-left" ng-click="$event.preventDefault();toggleMenu();"><i class="fa fa-bars"></i></a>
                 <h1 class="title">{{ appName}}</h1>
             </header>
@@ -84,7 +124,7 @@
         <div id="appmenu" ng-controller="NavCtrl">
             <ul>
                 <li>
-                    <a href="#/home" ng-click="toggleMenu()">Home</a>
+                    <a href="#/dashboard" ng-click="toggleMenu()">Dashboard</a>
                 </li>
                 <li>
                     <a href="#/workout" ng-click="toggleMenu()">Workout</a>
