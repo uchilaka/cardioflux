@@ -59,4 +59,4 @@ $workout_plans = [
 ];
 
 header("Content-type: application/json");
-echo json_encode($workout_plans);
+echo json_encode($workout_plans, JSON_PRETTY_PRINT);
