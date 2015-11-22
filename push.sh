@@ -6,4 +6,4 @@ else
 fi
 git add .
 git commit -m "$COMMIT_MSG"
-git push origin marcel
+git push origin as-php
