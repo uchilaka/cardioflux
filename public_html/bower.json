@@ -1,0 +1,11 @@
+{
+    "name": "co.cardioflux",
+    "dependencies": {
+        "bootstrap": "*",
+        "ratchet": "*",
+        "font-awesome": "*",
+        "angular": "*",
+        "angular-route": "*",
+        "angular-sanitize": "*"
+    }
+}
