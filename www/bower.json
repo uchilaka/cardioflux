@@ -1,0 +1,8 @@
+{
+    "name": "co.cardioflux",
+    "dependencies": {
+        "bootstrap": "*",
+        "ratchet": "*",
+        "font-awesome": "*"
+    }
+}
