@@ -12,10 +12,13 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css" />
-        <link href="libs/bootstrap/dist/css/bootstrap.min.css" />
-        <link href="libs/bootstrap/dist/css/bootstrap-theme.min.css" />
         <!-- Include the compiled Ratchet CSS -->
         <link href="libs/ratchet/dist/css/ratchet.css" rel="stylesheet">
+        <link href="libs/bootstrap/dist/css/bootstrap.min.css" />
+        <!--
+        <link href="libs/bootstrap/dist/css/bootstrap-theme.min.css" />
+        -->
+        <link rel="stylesheet" href="css/index.css" />
 
         <!-- Include the compiled Ratchet JS -->
         <!--<script src="libs/dist/js/ratchet.js"></script>-->
@@ -23,91 +26,6 @@
         <script src="libs/angular/angular.min.js"></script>
         <script src="libs/angular-route/angular-route.min.js"></script>
         <script src="libs/angular-sanitize/angular-sanitize.min.js"></script>
-        <style type="text/css">
-            .bg-color {
-                background-color: #dd524d;
-                color: #fff;
-            }
-            .bg-color h1, .bg-color a {
-                color: #fff;
-            }
-            #appbody {
-                position: fixed;
-                top: 0;
-                bottom: 0;
-                z-index: 2;
-                background-color: #fff;
-                width: 100%;
-                box-shadow: -1px 0px 3px #000;
-            }
-            #appbody header {
-                width: 100%;
-            }
-            #appmenu {
-                position: fixed;
-                z-index: 1;
-                top: 0; left: 0;
-                bottom: 0;
-                width: 250px;
-                display: none;
-                background: #2a2a2a;
-                display: block;
-            }
-            #appmenu ul {
-                list-style-type: none;
-                padding: 0;
-            }
-            #appmenu ul>li>a {
-                padding: 0.8em 1em;
-                display: block;
-                color: #fff;
-            }
-            #appmenu ul>li>a:hover,
-            #appmenu ul>li>a:focus, 
-            #appmenu ul>li>a:active {
-                color: #2a2a2a;
-                background-color: #fff;
-            }
-            #appbody.menu-open {
-                left: 210px;
-            }
-            #appbody.menu-open header {
-                left: 210px;
-            }
-            .dash-content {
-                background: rgba(212,228,239,1);
-                background: -moz-radial-gradient(center, ellipse cover, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
-                background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(212,228,239,1)), color-stop(100%, rgba(134,174,204,1)));
-                background: -webkit-radial-gradient(center, ellipse cover, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
-                background: -o-radial-gradient(center, ellipse cover, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
-                background: -ms-radial-gradient(center, ellipse cover, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
-                background: radial-gradient(ellipse at center, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#86aecc', GradientType=1 );                
-            }
-            .content p {
-                font-size: 1.2em;
-                line-height: 135%;
-            }
-            .live-bg1 {
-                background-size: cover;
-                background-attachment: fixed;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-image: url('assets/treadmill_active.jpg');
-                color: #fff;
-            }
-            .subtext {
-                color: #ccc;
-                text-transform: uppercase;
-                font-weight: bold;
-            }
-            .bg-spread {
-                color: #fff;
-            }
-            .bg-spread h1, bg-spread h2, bg-spread h3 {
-                color: #fff;
-            }
-        </style>
     </head>
     <body ng-app="CardioFlux">
 
@@ -129,9 +47,16 @@
                 <li>
                     <a href="#/workout" ng-click="toggleMenu()">Workout</a>
                 </li>
+                <li class="divider">
+                    <sup>SWC PITCH</sup>
+                </li>
+                <li>
+                    <a href="#/dashboard" ng-click="toggleMenu()" target="_top">Pitch Deck</a>
+                </li>
             </ul>
         </div>
-
+        
+        <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="js/svc.context.js"></script>
         <!-- MUST BE FIRST!! -->
         <script src="js/cardioflux.js"></script>

@@ -8,5 +8,9 @@ CardioFlux.controller('NavCtrl', [
         $all.toggleMenu = function() {
             $('#appbody').toggleClass('menu-open');
         };
+        
+        $all.goTo = function(uri) {
+            window.location.href = '#/' + uri;
+        };
     }
 ]);
