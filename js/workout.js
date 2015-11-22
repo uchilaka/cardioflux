@@ -31,7 +31,14 @@ CardioFlux.controller('WorkoutCtrl', [
                         $ex.log("[Running simulation...]");
                         $scope.runningSimulation = $interval(function() {
                             $scope.currentData = $scope.dataset.data[$scope.currentRateIndex];
+                            $scope.currentData.targetBPM = parseFloat($scope.currentData.targetBPM) * 100;
                             $scope.currentRateIndex += 1;
+                            if($scope.currentRateIndex>5) {
+                                $scope.callout = {
+                                    title: 'Doing Great!',
+                                    message: 'Try to hold your current heart rate'
+                                };
+                            }
                             $ex.log("Simulation at " + $scope.currentRateIndex + "...");
                             if($scope.lastZone && $scope.lastZone != $scope.currentData.zone) {
                                 $scope.callout = {

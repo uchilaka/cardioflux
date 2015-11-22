@@ -1,8 +1,9 @@
 <!-- @TODO use workout backgrounds that correspond to the selected workout plan for the user -->
 <div ng-controller="WorkoutCtrl" class="spread live-bg1 active-view">
-    <div class="cue cue-success">
-        <h3>Doing Great!</h3>
-        <p>Try to maintain your current cadence to stay at 75% of your maximum BPM</p>
+    <div class="cue cue-success" ng-show="callout">
+        <h3 ng-bind-html="callout.title"></h3>
+        <p ng-bind-html="callout.message"></p>
+        <!--<h3>Doing Great!</h3><p>Try to maintain your current cadence to stay at 75% of your maximum BPM</p>-->
     </div>
     <div style="text-align: center; padding: 1.8em; background-color: rgba(0, 0, 0, 0.45);">
         <div class="jumbotron">
@@ -45,7 +46,7 @@
             </article>
             <article>
                 <section>
-                    <h3>{{ currentData.zone.targetBPM | number : 0 }} %</h3>
+                    <h3>{{ currentData.targetBPM }} %</h3>
                     <span class="subtext">/MAX *</span>
                 </section>
             </article>
