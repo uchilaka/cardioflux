@@ -5,7 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-$zones = [
+$workout_plans = [
     [
         'name' => 'Track Workout',
         'intervals' => [
@@ -57,3 +57,6 @@ $zones = [
         ]
     ]
 ];
+
+header("Content-type: application/json");
+echo json_encode($workout_plans);
