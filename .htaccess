@@ -1,0 +1,18 @@
+#<IfModule mod_rewrite.c>
+#    RewriteEngine On
+#    RewriteCond $1 !^(index\.html|robots\.txt|css|views|js|assets|files|preflight_fix.php|templates)
+#    RewriteCond %{REQUEST_FILENAME} !-d
+#    RewriteCond %{REQUEST_FILENAME} !-f
+#    RewriteRule    ^(.*)$  index.php?/$1 [L]
+#
+#    RewriteCond %{REQUEST_METHOD} OPTIONS
+#    RewriteRule ^(.*)$ preflight_fix.php [QSA,L]
+#</IfModule>
+# @IMPORTANT!!! - only sticking @ httpd config level for some reason...
+<IfModule mod_headers.c>
+    Header always set Access-Control-Allow-Origin "*"
+    Header always set Access-Control-Allow-Headers "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding"
+    # @IMPORTANT! If you're getting blank 401 Errors, odds are that you need to check the allowed headers to make sure Authorization is on the list!
+    Header always set Access-Control-Max-Age "1000"
+    Header set Access-Control-Allow-Methods "PUT, GET, POST, DELETE, PATCH, OPTIONS"
+</IfModule>

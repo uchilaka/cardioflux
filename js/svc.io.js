@@ -1,5 +1,8 @@
-angular.module('svc.io', []).factory('$ioService', [
-    '$http', '$contextService', '$q',
+angular.module('svc.io', [
+    'svc.ext',
+    'svc.context'
+]).factory('$ioService', [
+    '$http', '$extendService', '$contextService', '$q',
     function ($http, $ex, $context, $q) {
         console.log("New context function exists! -> " + angular.isFunction($context['resource_url']));
         var __fx = {
