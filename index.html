@@ -12,8 +12,8 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css" />
         <!-- Include the compiled Ratchet CSS -->
-        <link href="libs/ratchet/dist/css/ratchet.css" rel="stylesheet">
         <link href="libs/bootstrap/dist/css/bootstrap.min.css" />
+        <link href="libs/ratchet/dist/css/ratchet.css" rel="stylesheet">
         <!--
         <link href="libs/bootstrap/dist/css/bootstrap-theme.min.css" />
         -->
@@ -34,7 +34,7 @@
                 <h1 class="title">{{ appName}}</h1>
             </header>
 
-            <div class="content" ng-view></div>
+            <div class="content {{ bgClass }}" ng-view></div>
         </div>
 
         <div id="appmenu" ng-controller="NavCtrl">
@@ -43,7 +43,7 @@
                     <a href="#/dashboard" ng-click="toggleMenu()">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#/start_workout" ng-click="toggleMenu()">Start Workout</a>
+                    <a href="#/workout?start_workout=1" ng-click="toggleMenu()">Start Workout</a>
                 </li>
                 <li class="divider">
                     <sup>SWC PITCH</sup>
@@ -62,6 +62,7 @@
         <script src="js/cardioflux.js"></script>
         <!-- ALL modules using CardioFlux variable should be included after cardioflux.js -->
         <script src="js/nav.js"></script>
+        <script src="js/dashboard.js"></script>
         <script src="js/workout.js"></script>
     </body>
 </html>

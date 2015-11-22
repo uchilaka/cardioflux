@@ -11,6 +11,11 @@ angular.module('svc.context', []).factory('$contextService', [
             },
             resource_url: function( uri ) {
                 return config.url + uri;
+            },
+            layout: function() {
+                $('.spread').css({
+                    minHeight: $(window).height()
+                });
             }
         };
         return __fx;

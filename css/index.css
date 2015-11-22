@@ -62,12 +62,22 @@
     font-size: 1.2em;
     line-height: 135%;
 }
+.live-bg2 {
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    /*background-image: url('../assets/treadmill2.jpg');*/
+    background-image: url('../assets/runner.jpg');
+    color: #fff;
+}
 .live-bg1 {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url('../assets/treadmill_active.jpg');
+    /**background-image: url('../assets/treadmill_active.jpg');**/
+    background-image: url('../assets/treadmill2_tinted.jpg');
     color: #fff;
 }
 .subtext {
@@ -78,6 +88,7 @@
 .bg-spread {
     color: #fff;
 }
+
 .bg-spread h1, bg-spread h2, bg-spread h3 {
     color: #fff;
 }
@@ -118,6 +129,18 @@ ul .divider {
     margin: 0 auto;
 }
 .row article {
-    width: 32%;
+    width: 30%;
     display: inline-block;
+}
+.cue {
+    padding: 15px;
+}
+.cue-success {
+    background-color: #67b168;
+}
+.cue-warning {
+    background-color: #f0ad4e;
+}
+.cue p {
+    color: #fff;
 }

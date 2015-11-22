@@ -46,7 +46,8 @@ for ($currentDuration; $currentDuration > 0; $currentDuration--) {
     $datafeed[] = [
         'secs' => $elapsedSeconds,
         'bpm' => rand($currentBPM, $currentBPM - 3),
-        'zone' => $zone
+        'zone' => $zone,
+        'targetBPM' => $targetRateToMax
     ];
 }
 
@@ -63,7 +64,8 @@ for ($cycles; $cycles > 0; $cycles--) {
         $datafeed[] = [
             'secs' => $elapsedSeconds,
             'bpm' => rand($currentBPM, $currentBPM - 3),
-            'zone' => $zone
+            'zone' => $zone,
+            'targetBPM' => $targetRateToMax
         ];
     }
 
@@ -78,7 +80,8 @@ for ($cycles; $cycles > 0; $cycles--) {
         $datafeed[] = [
             'secs' => $elapsedSeconds,
             'bpm' => rand($currentBPM, $currentBPM - 3),
-            'zone' => $zone
+            'zone' => $zone,
+            'targetBPM' => $targetRateToMax
         ];
     }
 }
