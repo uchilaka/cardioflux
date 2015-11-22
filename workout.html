@@ -1,6 +1,9 @@
 <!-- @TODO use workout backgrounds that correspond to the selected workout plan for the user -->
 <div ng-controller="WorkoutCtrl" class="spread live-bg1 active-view">
     <div class="cue cue-success" ng-show="callout">
+        <button type="button" ng-click="callout=null;" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
         <h3 ng-bind-html="callout.title"></h3>
         <p ng-bind-html="callout.message"></p>
         <!--<h3>Doing Great!</h3><p>Try to maintain your current cadence to stay at 75% of your maximum BPM</p>-->
