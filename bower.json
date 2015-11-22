@@ -1,13 +1,11 @@
 {
-    "name": "CordovaFluxLocal",
-    "version": "1.0.0",
-    "main": "path/to/main.css",
-    "ignore": [
-        ".jshintrc",
-        "**/*.txt"
-    ],
+    "name": "co.cardioflux",
     "dependencies": {
-    },
-    "devDependencies": {
+        "bootstrap": "*",
+        "ratchet": "*",
+        "font-awesome": "*",
+        "angular": "*",
+        "angular-route": "*",
+        "angular-sanitize": "*"
     }
 }
